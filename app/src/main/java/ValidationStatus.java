@@ -1,8 +1,17 @@
 public class ValidationStatus {
-    public ValidationStatus(boolean b, String string) {
+boolean successful;
+String message;
+public ValidationStatus(boolean successful, String message) {
+    this.successful = successful;
+    this.message = message;
+
     }
 
-    public Object getBoolean() {
-        return null;
+    public boolean isSuccessful() {
+        return successful;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

@@ -12,9 +12,30 @@ public class ExtraPractice {
     }
 
 
-    public ValidationStatus passwordCharCount(String i) {
-        return new ValidationStatus(true, "");
-    
+    public ValidationStatus validatePassword(String i) {
+        String message = "";
+        int count = 0;
+        if(i.length() < 8 ){
+            //  new ValidationStatus(false, "Password must be at least 8 characters");
+            message = message + "Password must be at least 8 characters";
+        }
+        char[]chars = i.toCharArray();
+        for (char c: chars){
+            if(Character.isDigit(c)){
+                count++;
+            }
+        }
+        if(count < 2){
+            message = message + "The password must contain at least 2 numbers";
+        }
+        
+        if(message.length() < 1){
+            return new ValidationStatus(true, "That is a valid password.");
+        } else{
+         return new ValidationStatus(false, message);
+
+        }
+
     }
     
 }
